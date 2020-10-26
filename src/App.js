@@ -35,16 +35,17 @@ class Student extends Component{
   }
 
   handleClick = () => {
-     this.setState({
-       name: 'Tushar',
-       rollNo: 16
+     this.setState((state, props) =>{
+       //to update the state pass the function in which pass previous state and props
+       console.log(state);
+       console.log(props);
      }) 
   }
 
   render(){
     return (
       <div> 
-        <h1> hello Event Listener {this.state.name} and roll no is {this.state.rollNo}</h1>
+        <h1>hello Event Listener {this.state.name} and roll no is {this.state.rollNo}</h1>
         <button onClick={this.handleClick}> Click me</button>
       </div>
     )
