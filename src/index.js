@@ -1,7 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Student from './App';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import Student from './App'
+import App from './App'
 
-//rendering component
+//rendering
 
-ReactDOM.render(<Student name='Student' />, document.getElementById('root'));
+ReactDOM.render(<Student rollNo={133}/> , document.getElementById('root'))

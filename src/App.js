@@ -1,14 +1,25 @@
-import React, {Component} from 'react';
-
-// //functional component
-// const Student = (prop) => {
-//   return <h1>Hello {prop.name}</h1>
-// }
-
-//class component
+import React, { Component } from 'react'
 class Student extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name: 'Parth',
+      rollNo: this.props.rollNo
+    };
+
+  }
+
+  handleClick = () => {
+    console.log('button was clicked', this);
+  }
+
   render(){
-    return <h1> Hello {this.props.name}</h1>;
+    return (
+      <div> 
+        <h1> hello Event Listener</h1>
+        <button onClick={this.handleClick}> Click me</button>
+      </div>
+    )
   }
 }
 
