@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 //function component
+/*
 function Student(props){
   // function handleClick(){
   //   console.log('button was clicked', this)
@@ -17,9 +18,11 @@ function Student(props){
     </div>
   )
 }
+*/
 
 
-/*
+
+
 //class component
 class Student extends Component{
   constructor(props){
@@ -32,19 +35,22 @@ class Student extends Component{
   }
 
   handleClick = () => {
-    console.log('button was clicked', this);
+     this.setState({
+       name: 'Tushar',
+       rollNo: 16
+     }) 
   }
 
   render(){
     return (
       <div> 
-        <h1> hello Event Listener</h1>
+        <h1> hello Event Listener {this.state.name} and roll no is {this.state.rollNo}</h1>
         <button onClick={this.handleClick}> Click me</button>
       </div>
     )
   }
 }
-*/
+
 
 
 
