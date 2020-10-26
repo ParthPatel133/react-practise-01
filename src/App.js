@@ -1,52 +1,27 @@
 import React, { Component } from 'react'
 
-//function component
-/*
-function Student(props){
-  // function handleClick(){
-  //   console.log('button was clicked', this)
-  // }
-
-  const handleClick = () => {
-    console.log('button was clicked', this)
-  }
-
-  return (
-    <div>
-      <h1>hello event Listener with function componemt {props.rollNo}</h1>
-      <button onClick={handleClick}>Click here</button>
-    </div>
-  )
-}
-*/
-
-
-
-
 //class component
 class Student extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      name: 'Parth',
-      rollNo: this.props.rollNo
-    };
 
+  //state without Constructor
+  state  = {
+    id: 1,
+    name: 'Parth'
+  };
+
+  //arrow function Event Handler
+  handleClick = (id, e) => {
+    console.log(id); 
+    console.log(e); 
   }
 
-  handleClick = () => {
-     this.setState((state, props) =>{
-       //to update the state pass the function in which pass previous state and props
-       console.log(state);
-       console.log(props);
-     }) 
-  }
 
   render(){
     return (
       <div> 
-        <h1>hello Event Listener {this.state.name} and roll no is {this.state.rollNo}</h1>
-        <button onClick={this.handleClick}> Click me</button>
+        <h1>hello Event Listener {this.state.name}</h1>
+        <button onClick={(e) => {this.handleClick(this.state.id, e)}}> event args with arrow function</button>
+        <button onClick={this.handleClick.bind(this, this.state.id)}> event args with bind</button>
       </div>
     )
   }
