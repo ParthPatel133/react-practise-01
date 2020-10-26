@@ -1,4 +1,26 @@
 import React, { Component } from 'react'
+
+//function component
+function Student(props){
+  // function handleClick(){
+  //   console.log('button was clicked', this)
+  // }
+
+  const handleClick = () => {
+    console.log('button was clicked', this)
+  }
+
+  return (
+    <div>
+      <h1>hello event Listener with function componemt {props.rollNo}</h1>
+      <button onClick={handleClick}>Click here</button>
+    </div>
+  )
+}
+
+
+/*
+//class component
 class Student extends Component{
   constructor(props){
     super(props);
@@ -22,5 +44,8 @@ class Student extends Component{
     )
   }
 }
+*/
+
+
 
 export default Student;
