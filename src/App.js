@@ -1,33 +1,34 @@
 import React, { Component } from 'react'
+import Student from './Student'
 
-//class component
-class Student extends Component{
-
-  //state without Constructor
-  state  = {
-    id: 1,
-    name: 'Parth'
-  };
-
-  //arrow function Event Handler
-  handleClick = (id, e) => {
-    console.log(id); 
-    console.log(e); 
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('App constructor called');
+    console.log(props);
+    this.state = {
+      roll: '133'
+    }
   }
 
+  static getDerivedStateFromProps(props, state){
+    console.log('App - get derived state from props');
+    console.log(props, state);
+    return null
+    //must return null or object
+  }
 
-  render(){
+  componentDidMount(){
+    //get data from server and set tha data to State
+    console.log('app - componendidmount Mounted')
+  }
+
+  render() {
+    console.log('app rendered');
     return (
-      <div> 
-        <h1>hello Event Listener {this.state.name}</h1>
-        <button onClick={(e) => {this.handleClick(this.state.id, e)}}> event args with arrow function</button>
-        <button onClick={this.handleClick.bind(this, this.state.id)}> event args with bind</button>
+      <div>
+      <Student name='Parth' />
       </div>
-    )
+    ) 
   }
 }
-
-
-
-
-export default Student;
