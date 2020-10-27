@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
-import Student from './Student'
 
 export default class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      roll: '133'
-    }
+  componentDidMount(){
+    console.log('app mounted')
   }
 
+  componentWillUnmount(){
+    console.log('app unmounted')
+  }
   render() {
-    console.log('app rendered');
+    console.log('app rendered')
     return (
       <div>
-      <Student />
+        <h1>hello app component</h1>
       </div>
-    ) 
+    )
   }
 }

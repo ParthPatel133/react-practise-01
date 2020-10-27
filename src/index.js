@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from  './App'
+import Student from './Student'
 
 
-ReactDOM.render(<App name='this is props'/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Student />, document.getElementById('student'));
+ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+
