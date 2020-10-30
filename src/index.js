@@ -1,10 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from  './App'
-import Student from './Student'
-
+import App from './App'
 
 ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<Student />, document.getElementById('student'));
-ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-
