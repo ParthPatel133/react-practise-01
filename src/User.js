@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 export default class User extends Component {
     render() {
         return (
-            <h1>Prime Member</h1>
+            <React.Fragment>
+            <h1>Welcome user</h1>
+            <button onClick={this.props.clickData}>Logout</button>
+            </React.Fragment>
         )
     }
 }

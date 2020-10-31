@@ -1,14 +1,26 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import User from './User'
+import Guest from './Guest'
 
 export default class App extends Component {
+  state = {
+    isLoggedIn: false,
+  };
+
+  clickLogin = () => {
+    this.setState({isLoggedIn : true})
+  };
+
+  clickLogout = () => {
+    this.setState({isLoggedIn : false})
+  };
+
   render() {
-    const primeMember = this.props.primeMember;
-    return (
-      <React.Fragment>
-        <h1>Welcome User</h1>
-        {primeMember && <User />}
-      </React.Fragment>
-    )
+    const isLoggedIn = this.state.isLoggedIn;
+    if (isLoggedIn) {
+      return <User clickData = {this.clickLogout} />;
+    } else {
+      return <Guest clickData = {this.clickLogin} />;
+    }
   }
 }
