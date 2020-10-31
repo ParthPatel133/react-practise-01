@@ -19,10 +19,18 @@ export default class App extends Component {
     const isLoggedIn = this.state.isLoggedIn;
     return (
       <div>
-        {isLoggedIn ? <User clickData={this.clickLogout} />
-                    : <Guest clickData={this.clickLogin} />
+        {
+          (() => {
+            if(isLoggedIn){
+              return <User clickData={this.clickLogout} />;
+            } else {
+              return <Guest clickData={this.clickLogin} />;
+            }
+          })()
         }
       </div>
     )
   }
 }
+
+
