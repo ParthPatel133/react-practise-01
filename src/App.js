@@ -1,36 +1,27 @@
-import React, { Component } from 'react'
 import User from './User'
 import Guest from './Guest'
 
+import React, { Component } from 'react'
+
 export default class App extends Component {
   state = {
-    isLoggedIn: false,
-  };
-
-  clickLogin = () => {
-    this.setState({ isLoggedIn: true })
-  };
-
-  clickLogout = () => {
-    this.setState({ isLoggedIn: false })
-  };
-
+    users: [
+      { id: 101, name: 'first' },
+      { id: 102, name: 'second' },
+      { id: 103, name: 'third' }
+    ],
+    isLoggedIn: false
+  }
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
+    const newUsers = this.state.users.map((user) => {
+      return <h1> id: {user.id} and name: {user.name}</h1>
+    })
+
     return (
-      <div>
-        {
-          (() => {
-            if(isLoggedIn){
-              return <User clickData={this.clickLogout} />;
-            } else {
-              return <Guest clickData={this.clickLogin} />;
-            }
-          })()
-        }
-      </div>
+     <div>
+      {newUsers}
+     </div>
     )
   }
 }
-
 
