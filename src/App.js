@@ -1,6 +1,3 @@
-import User from './User'
-import Guest from './Guest'
-
 import React, { Component } from 'react'
 
 export default class App extends Component {
@@ -14,13 +11,14 @@ export default class App extends Component {
   }
   render() {
     const newUsers = this.state.users.map((user) => {
-      return <h1> id: {user.id} and name: {user.name}</h1>
+      return <h1 key={user.id}> id: {user.id} and name: {user.name}</h1>
     })
 
+    //***************  KEY IS ARGS BUT CAN NOT PASS AS PROPS TO COMPONENT *******
     return (
-     <div>
-      {newUsers}
-     </div>
+      <div>
+        {newUsers}
+      </div>
     )
   }
 }
