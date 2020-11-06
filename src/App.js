@@ -1,20 +1,15 @@
-//inline css styling
+//external css styling
 
 import React, { Component } from 'react'
+import './App.css'
 
 export default class App extends Component {
 
   render() {
-    const btn = {
-      color: 'blue'
-    };
-    const btnBg = {
-      backgroundColor: 'orange'
-    };
     return (
-      <div>
-        <button style={{...btn, ...btnBg, ...{fontSize : '100px'}}}>Button</button>
-      </div >
+      <React.Fragment>
+        <h1 className='txt'>Hello external CSS</h1>
+      </React.Fragment>
     )
   }
 }
