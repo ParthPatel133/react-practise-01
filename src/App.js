@@ -1,24 +1,20 @@
+//inline css styling
+
 import React, { Component } from 'react'
 
 export default class App extends Component {
-  state = {
-    users: [
-      { id: 101, name: 'first' },
-      { id: 102, name: 'second' },
-      { id: 103, name: 'third' }
-    ],
-    isLoggedIn: false
-  }
-  render() {
-    const newUsers = this.state.users.map((user) => {
-      return <h1 key={user.id}> id: {user.id} and name: {user.name}</h1>
-    })
 
-    //***************  KEY IS ARGS BUT CAN NOT PASS AS PROPS TO COMPONENT *******
+  render() {
+    const btn = {
+      color: 'blue'
+    };
+    const btnBg = {
+      backgroundColor: 'orange'
+    };
     return (
       <div>
-        {newUsers}
-      </div>
+        <button style={{...btn, ...btnBg, ...{fontSize : '100px'}}}>Button</button>
+      </div >
     )
   }
 }
