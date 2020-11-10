@@ -1,39 +1,45 @@
-//---------CONTROLLED COMPONENT IN REACT FORMS------------
+//-----UNCONTROLLED COMPONENT------- createRef-----------
+//it is used in focus, animation and other small tasks
+
 import React, { Component } from 'react'
 
 export default class App extends Component {
-  state = {
-    name: 'your name',
-    password: 'password'
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: ''
+    };
+    //creating ref
+    this.textInput = React.createRef();
   }
 
-  handleChange = (e) => {
-    // this.setState({ [e.target.name]: e.target.value })
-    const value = e.target.name === 'password'
-      ? e.target.value.toUpperCase().substr(0, 10)
-      : e.target.value;
-    this.setState({ [e.target.name]: value })
+  componentDidMount = () => {
+    // console.log(this.textInput.current);
+    this.textInput.current.focus();
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({ value: this.textInput.current.value });
   }
 
   render() {
     return (
-      <div>
-        <form>
-          <h2>controlled by react</h2>
-          <label>
-            name:
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-          </label>
+      <React.Fragment>
+        <h2>Your submited name: {this.state.value}</h2>
+        <form onSubmit={this.handleSubmit}>
+          Name: <input type='text' ref={this.textInput} />
           <br />
           <br />
-          <label>
-            password:
-            <input type="text" name="password" value={this.state.password} onChange={this.handleChange} />
-          </label>
+          Password: <input type='password' />
+          <br />
+          <br />
+          <input type='submit' value="submit" />
+
         </form>
-      </div>
+      </React.Fragment>
+
     )
   }
 }
-
-
