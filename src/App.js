@@ -1,45 +1,23 @@
-//-----UNCONTROLLED COMPONENT------- createRef-----------
-//it is used in focus, animation and other small tasks
+import React, { createContext } from 'react'
+import { useState } from 'react'
+import User from './User'
+const Mycontext = createContext();
+export { Mycontext }
 
-import React, { Component } from 'react'
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [name, setName] = useState('hello');
+  const [value, setValue] = useState(0);
 
-    this.state = {
-      value: ''
-    };
-    //creating ref
-    this.textInput = React.createRef();
+  const handleClickContext = () => {
+    setValue(value + 1);
   }
 
-  componentDidMount = () => {
-    // console.log(this.textInput.current);
-    this.textInput.current.focus();
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({ value: this.textInput.current.value });
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <h2>Your submited name: {this.state.value}</h2>
-        <form onSubmit={this.handleSubmit}>
-          Name: <input type='text' ref={this.textInput} />
-          <br />
-          <br />
-          Password: <input type='password' />
-          <br />
-          <br />
-          <input type='submit' value="submit" />
-
-        </form>
-      </React.Fragment>
-
-    )
-  }
+  return (
+    <Mycontext.Provider value={[name, value, handleClickContext]}>
+      <User />
+    </Mycontext.Provider>
+  )
 }
+
+export default App
